@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkreact_homework_template=self.webpackChunkreact_homework_template||[]).push([[266],{1266:function(e,t,n){n.r(t),n.d(t,{default:function(){return s}});var c=n(9894),r=n(8494),a=n(4190),o=n(184);function s(){return(0,o.jsx)(a.W2,{maxW:"container.sm",centerContent:!0,children:(0,o.jsxs)(a.X6,{pt:"8",children:[(0,o.jsx)(c.JO,{as:r.gls,boxSize:8,fill:"cyan.800"})," Welcome to Contacts App!"]})})}}}]);
+//# sourceMappingURL=266.42ad2dc8.chunk.js.map
