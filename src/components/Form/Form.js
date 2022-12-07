@@ -1,8 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { selectContacts } from 'redux/selectors';
 import { addContact } from 'redux/operations';
-
-import { Label, Input, ContactForm, Button } from './Form.styled';
+import { ContactForm } from './Form.styled';
+import { FormLabel, Input, Button } from '@chakra-ui/react';
+import { toast } from 'react-toastify';
 
 export const Form = () => {
   const dispatch = useDispatch();
@@ -17,21 +18,40 @@ export const Form = () => {
         .map(contact => contact.name.toLowerCase())
         .includes(form.name.value.toLowerCase())
     ) {
-      alert(`${form.name.value} is already in contacts`);
+      toast.error(`${form.name.value} is already in contacts`, {
+        position: 'top-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'colored',
+      });
     } else {
       dispatch(
         addContact({
           name: form.elements.name.value,
-          phone: form.elements.number.value,
+          number: form.elements.number.value,
         })
       );
+      toast.success(`${form.name.value} has been added to phone book!`, {
+        position: 'top-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'colored',
+      });
       form.reset();
     }
   };
 
   return (
     <ContactForm onSubmit={handleSubmit}>
-      <Label>
+      <FormLabel>
         {' '}
         Name
         <Input
@@ -41,9 +61,9 @@ export const Form = () => {
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           required
         />
-      </Label>
+      </FormLabel>
 
-      <Label>
+      <FormLabel>
         Number
         <Input
           type="tel"
@@ -52,8 +72,10 @@ export const Form = () => {
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           required
         />
-      </Label>
-      <Button type="submit">Add contact</Button>
+      </FormLabel>
+      <Button colorScheme="teal" type="submit">
+        Add contact
+      </Button>
     </ContactForm>
   );
 };

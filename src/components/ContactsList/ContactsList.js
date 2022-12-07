@@ -2,7 +2,8 @@ import { useSelector } from 'react-redux';
 import { selectContacts, selectFilter } from 'redux/selectors';
 import { Box } from '../Box';
 import { ContactItem } from '../ContactItem/ContactItem';
-import { List } from './ContactList.styled';
+// import { List } from './ContactList.styled';
+import { UnorderedList } from '@chakra-ui/react';
 
 export const ContactsList = () => {
   const contacts = useSelector(selectContacts);
@@ -22,12 +23,12 @@ export const ContactsList = () => {
 
   return (
     <Box>
-      <h4>Contacts:</h4>
-      <List>
+      <h2>Contacts:</h2>
+      <UnorderedList p="4">
         {getVisibleContacts().map(contact => (
           <ContactItem contact={contact} key={contact.id} />
         ))}
-      </List>
+      </UnorderedList>
     </Box>
   );
 };
