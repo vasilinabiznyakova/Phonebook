@@ -1,7 +1,8 @@
 // import { NavLink } from 'react-router-dom';
 import { useAuth } from 'hooks';
-import { Link, Button } from '@chakra-ui/react';
-import { Link as ReachLink } from 'react-router-dom';
+// import { Button } from '@chakra-ui/react';
+// import { Link as ReachLink } from 'react-router-dom';
+import { Link } from './Navigation.styled';
 
 export const Navigation = () => {
   const { isLoggedIn } = useAuth();
@@ -9,16 +10,19 @@ export const Navigation = () => {
   return (
     <nav>
       <nav>
-        <Link as={ReachLink} to="/" color="teal.500">
-          <Button colorScheme="teal" type="button" variant="ghost">
+        <Link to="/">
+          Home
+          {/* <Button colorScheme="teal" type="button" variant="ghost">
             Home
-          </Button>
+          </Button> */}
+          {/* <button>Home</button> */}
         </Link>
         {isLoggedIn && (
-          <Link as={ReachLink} to="/contacts" color="teal.500">
-            <Button colorScheme="teal" type="button" variant="ghost">
+          <Link to="/contacts">
+            Contacts
+            {/* <Button colorScheme="teal" type="button" variant="ghost">
               Contacts
-            </Button>
+            </Button> */}
           </Link>
         )}
       </nav>

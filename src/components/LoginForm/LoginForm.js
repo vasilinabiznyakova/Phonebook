@@ -17,36 +17,19 @@ export const LoginForm = () => {
         password: form.elements.password.value,
       })
     );
-    if (error) {
-      toast.error('Login failed, please enter valid credentials!', {
-        position: 'top-right',
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: 'colored',
-      });
-    }
   };
-
-  // if (error) {
-  //   toast.error('Login failed, please enter valid credentials!', {
-  //     position: 'top-right',
-  //     autoClose: 5000,
-  //     hideProgressBar: false,
-  //     closeOnClick: true,
-  //     pauseOnHover: true,
-  //     draggable: true,
-  //     progress: undefined,
-  //     theme: 'colored',
-  //   });
-  // }
-
-  // const handleLoginError = () => {
-
-  // };
+  if (error) {
+    toast.error('Login failed, please enter valid credentials!', {
+      position: 'top-right',
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: 'colored',
+    });
+  }
 
   return (
     <Container>

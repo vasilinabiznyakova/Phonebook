@@ -3,6 +3,7 @@ import { selectContacts } from 'redux/selectors';
 import { addContact } from 'redux/operations';
 import { ContactForm } from './Form.styled';
 import { FormLabel, Input, Button } from '@chakra-ui/react';
+import { Heading } from '@chakra-ui/react';
 import { toast } from 'react-toastify';
 
 export const Form = () => {
@@ -50,32 +51,38 @@ export const Form = () => {
   };
 
   return (
-    <ContactForm onSubmit={handleSubmit}>
-      <FormLabel>
-        {' '}
-        Name
-        <Input
-          type="text"
-          name="name"
-          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-          title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-          required
-        />
-      </FormLabel>
+    <div>
+      <Heading fontSize="20px" mb="20" mt="20">
+        Please enter the details of the contact you want to add to the list
+        bellow
+      </Heading>
+      <ContactForm onSubmit={handleSubmit}>
+        <FormLabel>
+          {' '}
+          Name
+          <Input
+            type="text"
+            name="name"
+            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+            title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+            required
+          />
+        </FormLabel>
 
-      <FormLabel>
-        Number
-        <Input
-          type="tel"
-          name="number"
-          pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-          title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-          required
-        />
-      </FormLabel>
-      <Button colorScheme="teal" type="submit">
-        Add contact
-      </Button>
-    </ContactForm>
+        <FormLabel>
+          Number
+          <Input
+            type="tel"
+            name="number"
+            pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+            title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+            required
+          />
+        </FormLabel>
+        <Button colorScheme="teal" type="submit">
+          Add contact
+        </Button>
+      </ContactForm>
+    </div>
   );
 };

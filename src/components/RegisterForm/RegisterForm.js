@@ -1,12 +1,12 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { register } from 'redux/auth/operations';
-// import { selectError } from '../../redux/auth/selectors';
+import { selectError } from '../../redux/auth/selectors';
 import { FormLabel, Input, Button } from '@chakra-ui/react';
-// import { toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
-  // const error = useSelector(selectError);
+  const error = useSelector(selectError);
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -18,22 +18,19 @@ export const RegisterForm = () => {
         password: form.elements.password.value,
       })
     );
+    if (error) {
+      toast.error('Registration failed, please try anothercredentials!', {
+        position: 'top-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'colored',
+      });
+    }
   };
-
-  // const handleRegistrationError = () => {
-  //   if (error) {
-  //     toast.error('Registration failed, please enter valid credentials!', {
-  //       position: 'top-right',
-  //       autoClose: 5000,
-  //       hideProgressBar: false,
-  //       closeOnClick: true,
-  //       pauseOnHover: true,
-  //       draggable: true,
-  //       progress: undefined,
-  //       theme: 'colored',
-  //     });
-  //   }
-  // };
 
   return (
     <form onSubmit={handleSubmit} autoComplete="off">

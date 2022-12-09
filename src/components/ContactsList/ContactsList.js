@@ -3,7 +3,7 @@ import { selectContacts, selectFilter } from 'redux/selectors';
 import { Box } from '../Box';
 import { ContactItem } from '../ContactItem/ContactItem';
 // import { List } from './ContactList.styled';
-import { UnorderedList } from '@chakra-ui/react';
+import { UnorderedList, Heading } from '@chakra-ui/react';
 
 export const ContactsList = () => {
   const contacts = useSelector(selectContacts);
@@ -23,7 +23,9 @@ export const ContactsList = () => {
 
   return (
     <Box>
-      <h2>Contacts:</h2>
+      <Heading fontSize="20px" mb="6">
+        Contacts:
+      </Heading>
       <UnorderedList p="4">
         {getVisibleContacts().map(contact => (
           <ContactItem contact={contact} key={contact.id} />

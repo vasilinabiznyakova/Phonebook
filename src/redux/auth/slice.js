@@ -45,6 +45,12 @@ const authSlice = createSlice({
     [register.rejected](state, action) {
       state.error = true;
     },
+    [logIn.pending](state, action) {
+      state.error = null;
+    },
+    [register.pending](state, action) {
+      state.error = null;
+    },
     [refreshUser.rejected](state) {
       state.isRefreshing = false;
     },
