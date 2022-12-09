@@ -23,7 +23,6 @@ export const App = () => {
 
   return isRefreshing ? (
     <CirclesWithBar
-      height=""
       width="100"
       color="#4fa94d"
       wrapperStyle={{}}

@@ -1,9 +1,13 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { logIn } from 'redux/auth/operations';
+import { selectError } from '../../redux/auth/selectors';
 import { FormLabel, Input, Button, Container } from '@chakra-ui/react';
+import { toast } from 'react-toastify';
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
+  const error = useSelector(selectError);
+
   const handleSubmit = e => {
     e.preventDefault();
     const form = e.currentTarget;
@@ -13,9 +17,36 @@ export const LoginForm = () => {
         password: form.elements.password.value,
       })
     );
-
-    form.reset();
+    if (error) {
+      toast.error('Login failed, please enter valid credentials!', {
+        position: 'top-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'colored',
+      });
+    }
   };
+
+  // if (error) {
+  //   toast.error('Login failed, please enter valid credentials!', {
+  //     position: 'top-right',
+  //     autoClose: 5000,
+  //     hideProgressBar: false,
+  //     closeOnClick: true,
+  //     pauseOnHover: true,
+  //     draggable: true,
+  //     progress: undefined,
+  //     theme: 'colored',
+  //   });
+  // }
+
+  // const handleLoginError = () => {
+
+  // };
 
   return (
     <Container>

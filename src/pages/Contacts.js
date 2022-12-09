@@ -33,7 +33,6 @@ export default function Contacts() {
           <Filter />
           {isLoading && !error && (
             <CirclesWithBar
-              height=""
               width="100"
               color="#4fa94d"
               wrapperStyle={{}}
