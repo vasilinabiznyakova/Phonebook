@@ -1,12 +1,12 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/operations';
-import { selectError } from '../../redux/auth/selectors';
+// import { selectError } from '../../redux/auth/selectors';
 import { FormLabel, Input, Button } from '@chakra-ui/react';
-import { toast } from 'react-toastify';
+// import { toast } from 'react-toastify';
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
-  const error = useSelector(selectError);
+  // const error = useSelector(selectError);
 
   const handleSubmit = e => {
     e.preventDefault();
