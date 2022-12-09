@@ -17,7 +17,7 @@ const authSlice = createSlice({
       state.user = action.payload.user;
       state.token = action.payload.token;
       state.isLoggedIn = true;
-      state.error = null;
+      // state.error = null;
     },
     [logIn.fulfilled](state, action) {
       state.user = action.payload.user;
@@ -39,18 +39,18 @@ const authSlice = createSlice({
       state.isLoggedIn = true;
       state.isRefreshing = false;
     },
-    [logIn.rejected](state, action) {
-      state.error = true;
-    },
-    [register.rejected](state, action) {
-      state.error = true;
-    },
-    [logIn.pending](state, action) {
-      state.error = null;
-    },
-    [register.pending](state, action) {
-      state.error = null;
-    },
+    // [logIn.rejected](state, action) {
+    //   state.error = true;
+    // },
+    // [register.rejected](state, action) {
+    //   state.error = true;
+    // },
+    // [logIn.pending](state, action) {
+    //   state.error = null;
+    // },
+    // [register.pending](state, action) {
+    //   state.error = null;
+    // },
     [refreshUser.rejected](state) {
       state.isRefreshing = false;
     },
